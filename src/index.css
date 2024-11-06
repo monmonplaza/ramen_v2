@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: 228, 10, 19;
+  --light: 255, 255, 255;
+  --dark: 54, 54, 54;
+  --orange: 244, 173, 76;
+  --primary: 255, 255, 255;
+  --secondary: 245, 245, 245;
+  --line: 223, 223, 223;
+  --alert: 180, 19, 19;
+  --success: 14, 165, 38;
+  --warning: 211, 180, 14;
+  --info: 58, 27, 248;
+  --body: 99, 99, 99;
+}
+
+.dark {
+  --accent: 228, 10, 19;
+  --light: 64, 64, 64;
+  --primary: 13, 17, 23;
+  --secondary: 1, 4, 9;
+  --dark: 255, 255, 255;
+  --line: 48, 54, 61;
+  --alert: 180, 19, 19;
+  --success: 14, 165, 38;
+  --warning: 211, 180, 14;
+  --info: 58, 27, 248;
+  --body: 188, 188, 188;
+  } 
+
+@layer base {
+  
+
+  html {
+    @apply h-full;
+  }
+
+  body {
+    @apply text-dark font-raleway  min-h-screen w-full;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  ul {
+    @apply list-none;
+  }
+
+  button {
+    @apply cursor-pointer bg-transparent outline-none;
+  }
+
+  p {
+    @apply mb-1.5 text-sm text-balance leading-normal;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold  leading-normal font-['Varela_Round'] text-dark;
+  }
+
+  h1 {
+    @apply text-[clamp(35px,4vw,50px)] leading-none mb-2;
+  }
+
+  h2 {
+    @apply text-[clamp(28px,4vw,42px)] leading-none mb-2;
+  }
+
+  h3 {
+    @apply text-[clamp(20px,4vw,38px)] leading-none mb-2;
+  }
+
+  h4 {
+    @apply text-[clamp(18px,4vw,24px)] leading-none mb-2;
+  }
+
+  h5 {
+    @apply text-[clamp(14px,4vw,18px)] leading-none mb-2;
+  }
+
+  img {
+    @apply block;
+  }
+
+  /* .btn {
+    @apply text-sm text-white  flex items-center gap-2 py-2 px-4 rounded-full bg-black;
+  } */
+
+  table {
+    @apply w-full text-sm
+  }
+
+  table td {
+      @apply p-1 
+  }
+
+  table tr {
+      @apply border-b border-line
+  }
+
+  table thead tr {
+      @apply font-semibold
+  }
+
+  table tbody tr td {
+      @apply  opacity-90 py-2 text-xs
+  }
+
+  table tbody tr {
+      @apply hover:bg-secondary hover:!bg-opacity-10 
+  }
+
+
+  table tbody tr:nth-child(odd) {
+      @apply bg-secondary bg-opacity-20 
+  }
+
+
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1400px] mx-auto px-4 w-full;
+  }
+
+  .loading-bar {
+    @apply overflow-hidden relative;
+  }
+  .loading-bar::after {
+    @apply content-[''] absolute top-0 left-0 w-full h-full  bg-skeleton animate-loading;
+  }
+
+  .table-action {
+    @apply flex gap-5 justify-end
+    }
+
+    .table-action button {
+        @apply relative 
+    }
+
+    .table-action button::before {
+        @apply content-[attr(data-tooltip)] absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] bg-black bg-opacity-80 text-white rounded-sm px-1.5 py-1 leading-none hidden
+    } 
+
+    .table-action button:hover::before {
+        @apply block
+    }
+
+
+    .nav-link {
+      @apply  flex items-center gap-3 opacity-70 hover:opacity-100 px-2 py-1.5  text-sm 
+    }
+
+    .nav-link.active {
+        @apply bg-accent bg-opacity-5 text-accent rounded-md opacity-100
+    }
+
+    .tab-link {
+        @apply pb-2
+    }
+
+    .tab-link.active {
+        @apply border-b border-accent text-accent 
+    }
+
+    .input-wrap {
+      @apply relative mb-1.5
+    }
+
+    .input-wrap label {
+      @apply text-xs
+    }
+
+    .input-wrap input,
+    .input-wrap textarea,
+    .input-wrap select {
+      @apply px-2 py-[4.5px] border-[1px] border-line rounded-md outline-none text-sm text-black focus:border-success w-full
+    }
+
+    .input-wrap textarea {
+      @apply h-[100px]
+    }
+
+    .input-wrap span{
+      @apply absolute top-1 right-1 text-xs text-alert italic
+    }
+
+    .input-wrap:has(.error-show) input {
+      @apply border-accent bg-[#f19da0]
+    }
+
+    .table-action {
+      @apply flex gap-5 justify-end
+  }
+
+    .table-action button {
+        @apply relative 
+    }
+
+    .table-action button::before {
+        @apply content-[attr(data-tooltip)] absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] bg-black bg-opacity-80 text-white rounded-sm px-1.5 py-1 leading-none hidden
+    } 
+
+    .table-action button:hover::before {
+        @apply block
+    }
+
+}
+
+@layer utilities {
+  .btn {
+    @apply bg-black rounded-md px-2 py-1.5 text-white text-sm flex gap-2 items-center border border-transparent transition-all
+  }
+
+  .btn-accent {
+      @apply bg-accent hover:bg-opacity-80 
+  }
+  .btn-warning {
+      @apply bg-warning hover:bg-opacity-80 
+  }
+  .btn-cancel {
+      @apply bg-gray-300 hover:bg-opacity-80 text-gray-800 
+  }
+  .btn-alert {
+      @apply bg-alert hover:bg-opacity-80 
+  }
+  .btn-info {
+      @apply bg-info hover:bg-opacity-80 
+  }
+  .btn-success {
+      @apply bg-info hover:bg-opacity-80 
+  }
+}
+
+
+
+
+.spinner circle {
+  fill: none;
+  stroke-width: 6;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash 1s ease-in-out infinite;
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dashoffset: -110px;
+  }
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

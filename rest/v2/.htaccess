@@ -1,0 +1,43 @@
+RewriteEngine On
+# use for authentication
+RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+Header set Access-Control-Allow-Origin *
+
+#################################### ALL FOR DEVELOPER #################################
+
+RewriteRule ^upload-photo$ core/upload-photo.php [L]
+
+### Category ###
+RewriteRule ^category$ controllers/developer/settings/category/category.php [L]
+RewriteRule ^category/([0-9]+)$ controllers/developer/settings/category/category.php?categoryid=$1 [L]
+RewriteRule ^category/active/([0-9]+)$ controllers/developer/settings/category/active.php?categoryid=$1 [L]
+
+### MOP ###
+RewriteRule ^mop$ controllers/developer/settings/mop/mop.php [L]
+RewriteRule ^mop/([0-9]+)$ controllers/developer/settings/mop/mop.php?mopid=$1 [L]
+RewriteRule ^mop/active/([0-9]+)$ controllers/developer/settings/mop/active.php?mopid=$1 [L]
+
+### PROMO ###
+RewriteRule ^promo$ controllers/developer/settings/promo/promo.php [L]
+RewriteRule ^promo/([0-9]+)$ controllers/developer/settings/promo/promo.php?promoid=$1 [L]
+RewriteRule ^promo/active/([0-9]+)$ controllers/developer/settings/promo/active.php?promoid=$1 [L]
+
+
+
+### Drinks ###
+RewriteRule ^drinks$ controllers/developer/drinks/drinks.php [L]
+RewriteRule ^drinks/([0-9]+)$ controllers/developer/drinks/drinks.php?drinksid=$1 [L]
+RewriteRule ^drinks/active/([0-9]+)$ controllers/developer/drinks/active.php?drinksid=$1 [L]
+RewriteRule ^drinks/search$ controllers/developer/drinks/search.php [L]
+RewriteRule ^drinks/page/([0-9]+)$ controllers/developer/drinks/page.php?start=$1 [L]
+
+### Dessert ###
+RewriteRule ^dessert$ controllers/developer/dessert/dessert.php [L]
+RewriteRule ^dessert/([0-9]+)$ controllers/developer/dessert/dessert.php?dessertid=$1 [L]
+RewriteRule ^dessert/active/([0-9]+)$ controllers/developer/dessert/active.php?dessertid=$1 [L]
+RewriteRule ^dessert/search$ controllers/developer/dessert/search.php [L]
+RewriteRule ^dessert/page/([0-9]+)$ controllers/developer/dessert/page.php?start=$1 [L]

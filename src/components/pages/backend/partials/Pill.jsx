@@ -7,7 +7,7 @@ const Pill = ({ isActive }) => {
         isActive ? "bg-[#06380e] text-white" : "bg-gray-300 text-gray-700"
       }`}
     >
-      Active
+     {isActive ? "Active" : "Inactive"} 
     </span>
   );
 };

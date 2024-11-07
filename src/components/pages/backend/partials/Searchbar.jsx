@@ -38,25 +38,26 @@ const SearchBar = ({
       onSubmit={(e) => {
         handleChangeSubmit(e);
       }}
-      className="relative"
+      className="max-w-[300px] w-full relative"
     >
-      <div className="pb-2 flex items-center">
+      <div className="flex items-center">
         <input
           type="search"
-          placeholder="Search here..."
-          className="rounded-tr-none rounded-br-none border-r-0 text-sm py-[0px] h-[30px]"
+          placeholder="Search here... "
+          className="px-2 py-1 rounded-l-md w-full border border-dark text-light"
           ref={search}
           onChange={handleChange}
+          
         />
         <button
           type="submit"
-          className="btn-action-table text-[16px] p-[8px] rounded-tl-none rounded-bl-none border-l-0 bg-accent text-white border-accent hover:bg-accentDark rounded-md"
+          className="px-2 py-1 rounded-r-md bg-accent border-accent border-[.5px]"
         >
           <Search />
         </button>
       </div>
       {store.isSearch && (
-        <p className="absolute top-2 right-14 pointer-events-none">
+        <p className="absolute top-2 right-[70px] text-light flex items-center mb-0 opacity-60">
           Result: {isFetching ? "Searching..." : result?.[0].count}
         </p>
       )}

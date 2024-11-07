@@ -4,12 +4,12 @@ require '../../../core/header.php';
 // use needed functions
 require '../../../core/functions.php';
 // use needed classes
-require '../../../models/developer/Dessert.php';
+require '../../../models/developer/Toppings.php';
 // check database connection
 $conn = null;
 $conn = checkDbConnection();
 // make instance of classes
-$dessert = new Dessert($conn);
+$toppings = new Toppings($conn);
 $response = new Response();
 // validate api key
 if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
@@ -17,17 +17,17 @@ if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
 
     if (array_key_exists("start", $_GET)) {
         // get data
-        $dessert->dessert_start = $_GET['start'];
-        $dessert->dessert_total = 10;
-        checkLimitId($dessert->dessert_start, $dessert->dessert_total);
-        $query = checkReadLimit($dessert);
-        $total_result = checkReadAll($dessert);
+        $toppings->toppings_start = $_GET['start'];
+        $toppings->toppings_total = 15;
+        checkLimitId($toppings->toppings_start, $toppings->toppings_total);
+        $query = checkReadLimit($toppings);
+        $total_result = checkReadAll($toppings);
         http_response_code(200);
         checkReadQuery(
             $query,
             $total_result,
-            $dessert->dessert_total,
-            $dessert->dessert_start
+            $toppings->toppings_total,
+            $toppings->toppings_start
         );
     }
     checkEndpoint();

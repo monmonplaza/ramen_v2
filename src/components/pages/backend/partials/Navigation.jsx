@@ -33,7 +33,7 @@ const Navigation = ({ menu="" }) => {
           <li>
             <Link
               to="/admin/ramen"
-              className={`${menu === "movies" ? "active" : ""} nav-link`}
+              className={`${menu === "ramen" ? "active" : ""} nav-link`}
             >
               <Soup size={18} strokeWidth={1} /> Ramen{" "}
             </Link>
@@ -41,7 +41,7 @@ const Navigation = ({ menu="" }) => {
           <li>
             <Link
               to="/admin/toppings"
-              className={`${menu === "movies" ? "active" : ""} nav-link`}
+              className={`${menu === "toppings" ? "active" : ""} nav-link`}
             >
               <Shell size={18} strokeWidth={1} /> Toppings
             </Link>
@@ -49,7 +49,7 @@ const Navigation = ({ menu="" }) => {
           <li>
             <Link
               to="/admin/sides-dessert"
-              className={`${menu === "movies" ? "active" : ""} nav-link`}
+              className={`${menu === "sides&dessert" ? "active" : ""} nav-link`}
             >
               <Dessert size={18} strokeWidth={1} /> Sides & Dessert
             </Link>
@@ -57,7 +57,7 @@ const Navigation = ({ menu="" }) => {
           <li>
             <Link
               to="/admin/drinks"
-              className={`${menu === "movies" ? "active" : ""} nav-link`}
+              className={`${menu === "drinks" ? "active" : ""} nav-link`}
             >
               <Beer size={18} strokeWidth={1} /> Drinks
             </Link>

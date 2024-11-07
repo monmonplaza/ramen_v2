@@ -2,11 +2,11 @@
 
 require '../../../core/header.php';
 require '../../../core/functions.php';
-require '../../../models/developer/Dessert.php';
+require '../../../models/developer/Toppings.php';
 
 $conn = null;
 $conn = checkDbConnection();
-$dessert = new Dessert($conn);
+$toppings = new Toppings($conn);
 $response = new Response();
 
 $body = file_get_contents("php://input");
@@ -17,17 +17,17 @@ $returnData = [];
 
 if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
     checkApiKey();
-    if (array_key_exists("dessertid", $_GET)) {
+    if (array_key_exists("toppingsid", $_GET)) {
 
         checkPayload($data);
-        $dessert->dessert_aid = $_GET['dessertid'];
-        $dessert->dessert_is_active = trim($data["isActive"]);
-        $dessert->dessert_datetime = date("Y-m-d H:i:s");
+        $toppings->toppings_aid = $_GET['toppingsid'];
+        $toppings->toppings_is_active = trim($data["isActive"]);
+        $toppings->toppings_datetime = date("Y-m-d H:i:s");
 
-        checkId($dessert->dessert_aid);
-        $query = checkActive($dessert);
+        checkId($toppings->toppings_aid);
+        $query = checkActive($toppings);
         http_response_code(200);
-        returnSuccess($dessert, "dessert", $query);
+        returnSuccess($toppings, "toppings", $query);
     }
 
     checkEndpoint();

@@ -35,9 +35,16 @@ RewriteRule ^drinks/active/([0-9]+)$ controllers/developer/drinks/active.php?dri
 RewriteRule ^drinks/search$ controllers/developer/drinks/search.php [L]
 RewriteRule ^drinks/page/([0-9]+)$ controllers/developer/drinks/page.php?start=$1 [L]
 
+### Drinks ###
+RewriteRule ^toppings$ controllers/developer/toppings/toppings.php [L]
+RewriteRule ^toppings/([0-9]+)$ controllers/developer/toppings/toppings.php?toppingsid=$1 [L]
+RewriteRule ^toppings/active/([0-9]+)$ controllers/developer/toppings/active.php?toppingsid=$1 [L]
+RewriteRule ^toppings/search$ controllers/developer/toppings/search.php [L]
+RewriteRule ^toppings/page/([0-9]+)$ controllers/developer/toppings/page.php?start=$1 [L]
+
 ### Dessert ###
-RewriteRule ^dessert$ controllers/developer/dessert/dessert.php [L]
-RewriteRule ^dessert/([0-9]+)$ controllers/developer/dessert/dessert.php?dessertid=$1 [L]
-RewriteRule ^dessert/active/([0-9]+)$ controllers/developer/dessert/active.php?dessertid=$1 [L]
-RewriteRule ^dessert/search$ controllers/developer/dessert/search.php [L]
-RewriteRule ^dessert/page/([0-9]+)$ controllers/developer/dessert/page.php?start=$1 [L]
+RewriteRule ^sides-dessert$ controllers/developer/sides-dessert/sides-dessert.php [L]
+RewriteRule ^sides-dessert/([0-9]+)$ controllers/developer/sides-dessert/sides-dessert.php?sidesdessertid=$1 [L]
+RewriteRule ^sides-dessert/active/([0-9]+)$ controllers/developer/sides-dessert/active.php?sidesdessertid=$1 [L]
+RewriteRule ^sides-dessert/search$ controllers/developer/sides-dessert/search.php [L]
+RewriteRule ^sides-dessert/page/([0-9]+)$ controllers/developer/sides-dessert/page.php?start=$1 [L]

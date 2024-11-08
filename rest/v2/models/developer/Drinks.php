@@ -5,6 +5,7 @@ class Drinks
     public $drinks_title;
     public $drinks_price;
     public $drinks_description;
+    public $drinks_category;
     public $drinks_is_active;
     public $drinks_datetime;
     public $drinks_created;
@@ -33,12 +34,14 @@ class Drinks
             $sql .= "drinks_is_active, ";
             $sql .= "drinks_price, ";
             $sql .= "drinks_description, ";
+            $sql .= "drinks_category, ";
             $sql .= "drinks_datetime, ";
             $sql .= "drinks_created ) values ( ";
             $sql .= ":drinks_title, ";
             $sql .= ":drinks_is_active, ";
             $sql .= ":drinks_price, ";
             $sql .= ":drinks_description, ";
+            $sql .= ":drinks_category, ";
             $sql .= ":drinks_datetime, ";
             $sql .= ":drinks_created ) ";
             $query = $this->connection->prepare($sql);
@@ -47,6 +50,7 @@ class Drinks
                 "drinks_is_active" => $this->drinks_is_active,
                 "drinks_price" => $this->drinks_price,
                 "drinks_description" => $this->drinks_description,
+                "drinks_category" => $this->drinks_category,
                 "drinks_datetime" => $this->drinks_datetime,
                 "drinks_created" => $this->drinks_created,
             ]);
@@ -134,6 +138,7 @@ class Drinks
             $sql .= "drinks_title = :drinks_title, ";
             $sql .= "drinks_price = :drinks_price, ";
             $sql .= "drinks_description = :drinks_description, ";
+            $sql .= "drinks_category = :drinks_category, ";
             $sql .= "drinks_datetime = :drinks_datetime ";
             $sql .= "where drinks_aid = :drinks_aid ";
             $query = $this->connection->prepare($sql);
@@ -141,6 +146,7 @@ class Drinks
                 "drinks_title" => $this->drinks_title,
                 "drinks_price" => $this->drinks_price,
                 "drinks_description" => $this->drinks_description,
+                "drinks_category" => $this->drinks_category,
                 "drinks_datetime" => $this->drinks_datetime,
                 "drinks_aid" => $this->drinks_aid,
             ]);

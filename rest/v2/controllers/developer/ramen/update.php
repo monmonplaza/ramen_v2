@@ -12,7 +12,7 @@ if (array_key_exists("ramenid", $_GET)) {
     $ramen->ramen_price = checkIndex($data, "ramen_price");
     $ramen->ramen_description = checkIndex($data, "ramen_description");
     $ramen->ramen_category = checkIndex($data, "ramen_category");
-    $ramen->ramen_photo = checkIndex($data, "photo");
+    $ramen->ramen_photo = checkIndex($data, "ramen_photo");
 
     $ramen->ramen_datetime = date("Y-m-d H:i:s");
     $ramen_title_old = strtolower($data["ramen_title_old"]);

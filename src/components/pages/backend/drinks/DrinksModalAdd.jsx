@@ -47,6 +47,7 @@ const DrinksModalAdd = ({itemEdit}) => {
     drinks_title: itemEdit ? itemEdit.drinks_title : '',
     drinks_price: itemEdit ? itemEdit.drinks_price : '',
     drinks_description: itemEdit ? itemEdit.drinks_description : '',
+    drinks_category: itemEdit ? itemEdit.drinks_category : '',
     drinks_title_old: itemEdit ? itemEdit.drinks_title : '',
   }
 
@@ -54,6 +55,7 @@ const DrinksModalAdd = ({itemEdit}) => {
     drinks_title: Yup.string().required('Required'),
     drinks_price: Yup.string().required('Required'),
     drinks_description: Yup.string().required('Required'),
+    drinks_category: Yup.string().required('Required'),
   })
 
 
@@ -91,6 +93,14 @@ const DrinksModalAdd = ({itemEdit}) => {
                       label="Price"
                       type="text"
                       name="drinks_price"
+                      disabled={mutation.isPending}
+                    />
+                  </div>
+                  <div className="input-wrap">
+                    <InputText
+                      label="Category"
+                      type="text"
+                      name="drinks_category"
                       disabled={mutation.isPending}
                     />
                   </div>

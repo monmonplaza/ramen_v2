@@ -4,11 +4,29 @@ import Beer from './Beer'
 import Wine from './Wine'
 import Tea from './Tea'
 import Sake from './Sake'
+import useQueryData from '@/components/custom-hook/useQueryData'
 
-const Drinks = () => {
+const Drinks = (drinkCart, setDrinkCart) => {
   const [index, setIndex] = React.useState(0);
-  const layout = [<Beer/>, <Wine/>, <Tea/>, <Sake/> ]
   const handleTab = (idx) => setIndex(idx)
+  
+  const {
+    isLoading,
+    isFetching,
+    error,
+    data: result,
+  } = useQueryData (
+   `/v2/drinks`, // endpoint
+   "get", // method
+    "drinks",
+  );
+
+  const layout = [
+    <Beer result={result} isLoading={isLoading}/>,
+    <Sake result={result} isLoading={isLoading}/>,
+    <Wine result={result} isLoading={isLoading}/>,
+    <Tea  result={result} isLoading={isLoading}/>,
+  ]
 
   return (
     <section className='bg-[#fdf7ef]'>

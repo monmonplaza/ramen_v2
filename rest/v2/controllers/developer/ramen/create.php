@@ -13,7 +13,7 @@ $ramen->ramen_title = checkIndex($data, "ramen_title");
 $ramen->ramen_price = checkIndex($data, "ramen_price");
 $ramen->ramen_description = checkIndex($data, "ramen_description");
 $ramen->ramen_category = checkIndex($data, "ramen_category");
-$ramen->ramen_photo = checkIndex($data, "photo");
+$ramen->ramen_photo = checkIndex($data, "ramen_photo");
 
 $ramen->ramen_is_active = 1;
 $ramen->ramen_created = date("Y-m-d H:i:s");

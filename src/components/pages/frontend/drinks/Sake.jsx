@@ -1,49 +1,37 @@
 import { Plus } from 'lucide-react'
 import React from 'react'
 
-const Sake = () => {
-  return (
-    <> 
-     <div className="grid grid-cols-3 gap-10 mt-16">
-    <div className="grid-item grid grid-cols-[1fr,_100px,_100px] items-center text-black">
-        <div>
-            <h5 className='mb-0 text-black'>Edamamerrrrr</h5>
-            <small>Boiled and salted soybean pods</small>
-        </div>
-        <p className='font-bold text-2xl justify-self-center'>200</p>
-        <button className='bg-accent text-white  justify-self-center rounded-md px-2 py-1.5'><Plus/></button>
-    </div>
+const Sake = ({result, isLoading, setDrinkCart, drinkCart}) => {
 
-    <div className="grid-item grid grid-cols-[1fr,_100px,_100px] items-center text-black">
-        <div>
-            <h5 className='mb-0 text-black'>Edamame</h5>
-            <small>Boiled and salted soybean pods</small>
-        </div>
-        <p className='font-bold text-2xl justify-self-center'>200</p>
-        <button className='bg-accent text-white  justify-self-center rounded-md px-2 py-1.5'><Plus/></button>
-    </div>
+    const getAllSake = result?.data.length > 0 && result?.data.filter((item) => item.drinks_category === "Sake" )
 
-    <div className="grid-item grid grid-cols-[1fr,_100px,_100px] items-center text-black">
-        <div>
-            <h5 className='mb-0 text-black'>Edamame</h5>
-            <small>Boiled and salted soybean pods</small>
-        </div>
-        <p className='font-bold text-2xl justify-self-center'>200</p>
-        <button className='bg-accent text-white  justify-self-center rounded-md px-2 py-1.5'><Plus/></button>
-    </div>
-
-    <div className="grid-item grid grid-cols-[1fr,_100px,_100px] items-center text-black">
-        <div>
-            <h5 className='mb-0 text-black'>Edamame</h5>
-            <small>Boiled and salted soybean pods</small>
-        </div>
-        <p className='font-bold text-2xl justify-self-center'>200</p>
-        <button className='bg-accent text-white  justify-self-center rounded-md px-2 py-1.5'><Plus/></button>
-    </div>
-
-</div>
-</>
-  )
+    return (
+        <> 
+    
+            {
+                isLoading ? (
+                    <div className="min-h-[400px] w-full relative">
+                        <SpinnerMenu/>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-2 gap-10 mt-16">
+                        {getAllSake.map((item, key)=>(
+                            <div className="grid-item grid grid-cols-[1fr,_100px,_100px] items-center text-black" key={key}>
+                                <div>
+                                    <h5 className='mb-0 text-black '>{item.drinks_title}</h5>
+                                    <small>{item.drinks_description}</small>
+                                </div>
+                                <p className='font-bold text-2xl justify-self-center'>{item.drinks_price}</p>
+                                <button className='bg-accent text-white  justify-self-center rounded-md px-2 py-1.5'><Plus/></button>
+                            </div>
+                        ))}
+                        
+                     </div>
+                )
+             }
+         
+        </>
+      )
 }
 
 export default Sake

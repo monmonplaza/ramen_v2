@@ -115,6 +115,7 @@ const DrinksTable = () => {
             <td className='w-[30px]'>#</td>
             <td className='w-[80px]'>Status</td>
             <td>Title</td>
+            <td>Category</td>
             <td>Price</td>
            
             <td></td>
@@ -159,6 +160,7 @@ const DrinksTable = () => {
               <Pill isActive={item.drinks_is_active}/>
           </td>
           <td>{item.drinks_title} </td>
+          <td>{item.drinks_category} </td>
           <td>{item.drinks_price} </td>
           <td>
           <ul className='table-action translate-y-2'>

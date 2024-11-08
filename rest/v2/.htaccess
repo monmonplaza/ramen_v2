@@ -26,7 +26,12 @@ RewriteRule ^promo$ controllers/developer/settings/promo/promo.php [L]
 RewriteRule ^promo/([0-9]+)$ controllers/developer/settings/promo/promo.php?promoid=$1 [L]
 RewriteRule ^promo/active/([0-9]+)$ controllers/developer/settings/promo/active.php?promoid=$1 [L]
 
-
+### Drinks ###
+RewriteRule ^ramen$ controllers/developer/ramen/ramen.php [L]
+RewriteRule ^ramen/([0-9]+)$ controllers/developer/ramen/ramen.php?ramenid=$1 [L]
+RewriteRule ^ramen/active/([0-9]+)$ controllers/developer/ramen/active.php?ramenid=$1 [L]
+RewriteRule ^ramen/search$ controllers/developer/ramen/search.php [L]
+RewriteRule ^ramen/page/([0-9]+)$ controllers/developer/ramen/page.php?start=$1 [L]
 
 ### Drinks ###
 RewriteRule ^drinks$ controllers/developer/drinks/drinks.php [L]

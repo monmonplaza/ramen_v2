@@ -154,6 +154,11 @@ export const StoreReducer = (state, action) => {
         ...state,
         credentials: action.payload,
       };
+      case "CART":
+        return {
+          ...state,
+          cart: action.payload,
+        };
 
     default:
       return state;

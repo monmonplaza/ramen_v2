@@ -4,12 +4,12 @@ require '../../../core/header.php';
 // use needed functions
 require '../../../core/functions.php';
 // use needed classes
-require '../../../models/developer/Dessert.php';
+require '../../../models/developer/Ramen.php';
 // check database connection
 $conn = null;
 $conn = checkDbConnection();
 // make instance of classes
-$dessert = new Dessert($conn);
+$ramen = new Ramen($conn);
 $response = new Response();
 // validate api key
 if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
@@ -17,17 +17,17 @@ if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
 
     if (array_key_exists("start", $_GET)) {
         // get data
-        $dessert->dessert_start = $_GET['start'];
-        $dessert->dessert_total = 10;
-        checkLimitId($dessert->dessert_start, $dessert->dessert_total);
-        $query = checkReadLimit($dessert);
-        $total_result = checkReadAll($dessert);
+        $ramen->ramen_start = $_GET['start'];
+        $ramen->ramen_total = 10;
+        checkLimitId($ramen->ramen_start, $ramen->ramen_total);
+        $query = checkReadLimit($ramen);
+        $total_result = checkReadAll($ramen);
         http_response_code(200);
         checkReadQuery(
             $query,
             $total_result,
-            $dessert->dessert_total,
-            $dessert->dessert_start
+            $ramen->ramen_total,
+            $ramen->ramen_start
         );
     }
     checkEndpoint();

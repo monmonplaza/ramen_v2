@@ -8,10 +8,10 @@ const Ramen = () => {
   return (
     <section className="flex  min-h-screen bg-secondary">
     <aside className="bg-primary text-dark basis-[200px] border-r border-line">
-      <Navigation />
+      <Navigation menu="ramen"/>
     </aside>
     <main className="basis-[calc(100%-200px)] min-h-[100vh] grid grid-rows-[auto_1fr_auto]">
-      <Heading/>
+      <Heading title="Ramen" subtitle="Manage Ramen List"/>
      <RamenTable/>
     
       <Footer />

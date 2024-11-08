@@ -178,3 +178,12 @@ export const setError = (val) => {
       },
     };
   };
+
+  export const setCart = (data) => {
+    return {
+      type: "CART",
+      payload: {
+        data,
+      },
+    };
+  };

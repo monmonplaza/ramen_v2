@@ -25,9 +25,9 @@ const initVal = {
   isLogout: false,
   isAccountUpdated: false,
   isShowMobileNav: false,
-
   isUploadFile: false,
   credentials: {},
+  cart:[],
 };
 
 const StoreContext = React.createContext();

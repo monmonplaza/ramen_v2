@@ -53,3 +53,10 @@ RewriteRule ^sides-dessert/([0-9]+)$ controllers/developer/sides-dessert/sides-d
 RewriteRule ^sides-dessert/active/([0-9]+)$ controllers/developer/sides-dessert/active.php?sidesdessertid=$1 [L]
 RewriteRule ^sides-dessert/search$ controllers/developer/sides-dessert/search.php [L]
 RewriteRule ^sides-dessert/page/([0-9]+)$ controllers/developer/sides-dessert/page.php?start=$1 [L]
+
+### Dessert ###
+RewriteRule ^transaction$ controllers/developer/transaction/transaction.php [L]
+RewriteRule ^transaction/([0-9]+)$ controllers/developer/transaction/transaction.php?transactionid=$1 [L]
+RewriteRule ^transaction/active/([0-9]+)$ controllers/developer/transaction/active.php?transactionid=$1 [L]
+RewriteRule ^transaction/search$ controllers/developer/transaction/search.php [L]
+RewriteRule ^transaction/page/([0-9]+)$ controllers/developer/transaction/page.php?start=$1 [L]

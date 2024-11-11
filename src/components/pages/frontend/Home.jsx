@@ -27,7 +27,13 @@ const Home = () => {
 
   return (
     <>
-      <Banner />
+      <Banner 
+        ramenCart={ramenCart}
+        dessertCart={dessertCart}
+        drinksCart={drinksCart} 
+        toppingsCart={toppingsCart}
+      />
+      
       <Instruction />
       <Menu
         ramenCart={ramenCart}

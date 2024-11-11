@@ -2,8 +2,12 @@ import useQueryData from "@/components/custom-hook/useQueryData";
 import { Plus } from "lucide-react";
 import React from "react";
 import SpinnerMenu from "../../backend/partials/spinners/SpinnerMenu";
+import ToastSuccess from "../../backend/partials/ToastSuccess";
+import { setMessage, setSuccess } from "@/components/store/storeAction";
+import { StoreContext } from "@/components/store/storeContext";
 
 const Beer = ({ result, isLoading, setDrinksCart, drinksCart }) => {
+  const { store, dispatch } = React.useContext(StoreContext);
   const getAllBeer =
     result?.data.length > 0 &&
     result?.data.filter((item) => item.drinks_category === "Beer");
@@ -24,6 +28,9 @@ const Beer = ({ result, isLoading, setDrinksCart, drinksCart }) => {
     } else {
       setDrinksCart([...drinksCart, { ...item, quantity: 1 }]);
     }
+    dispatch(setSuccess(true));
+    dispatch(setMessage("Added to Cart!"));
+    
   };
   return (
     <>
@@ -55,6 +62,7 @@ const Beer = ({ result, isLoading, setDrinksCart, drinksCart }) => {
           ))}
         </div>
       )}
+
     </>
   );
 };

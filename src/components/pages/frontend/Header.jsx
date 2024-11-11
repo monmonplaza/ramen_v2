@@ -5,7 +5,7 @@ import { ShoppingBag } from 'lucide-react'
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({ramenCart , dessertCart,drinksCart, toppingsCart}) => {
   const [scrollPosition, setScrollPosition] = React.useState(0)
 
   const handleScroll = () => {
@@ -13,19 +13,16 @@ const Header = () => {
     setScrollPosition(position);
   };
 
-
+  let cartCount = ramenCart.length + dessertCart.length + drinksCart.length + toppingsCart.length
+  
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   })
-  
-
 
   const {dispatch} = React.useContext(StoreContext)
-
-
 
   const handleOpenCart = () => dispatch(setIsAdd(true));
   return (
@@ -70,6 +67,7 @@ const Header = () => {
       </ul>
 
       <button className="relative" onClick={handleOpenCart}>
+        {cartCount > 0 && <span className='absolute -top-2 -left-2 size-[17px] leading-none text-[10px] bg-accent text-white rounded-full grid place-content-center'>{cartCount}</span>}
         <ShoppingBag stroke={"#fff"} />
       </button>
     </div>

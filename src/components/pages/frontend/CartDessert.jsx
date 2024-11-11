@@ -43,6 +43,7 @@ const CartDessert = ({ dessertCart, setDessertCart }) => {
 
   return (
     <>
+    <p>Dessert cart</p>
       {dessertCart.map((item, key) => (
         <div
           className="card-item  items-center mb-2 pb-2 border-b border-gray-100"

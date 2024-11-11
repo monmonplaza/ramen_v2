@@ -37,6 +37,7 @@ const CartRamen = ({ ramenCart, setRamenCart }) => {
 
   return (
     <>
+      <p>Ramen Cart</p>
       {ramenCart.map((item, key) => (
         <div
           className="card-item  items-center mb-2 pb-2 border-b border-gray-100"

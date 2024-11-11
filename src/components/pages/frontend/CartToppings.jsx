@@ -41,6 +41,7 @@ const CartToppings = ({ toppingsCart, setToppingsCart }) => {
 
   return (
     <>
+    <p>toppings</p>
       {toppingsCart.map((item, key) => (
         <div
           className="card-item  items-center mb-2 pb-2 border-b border-gray-100"

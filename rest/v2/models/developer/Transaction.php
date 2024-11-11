@@ -102,7 +102,7 @@ class Transaction
         try {
             $sql = "select * from {$this->tbltransaction} ";
             $sql .= "order by transaction_is_active desc, ";
-            $sql .= "transaction_created asc ";
+            $sql .= "transaction_created desc ";
             $sql .= "limit :start, ";
             $sql .= ":total ";
             $query = $this->connection->prepare($sql);
@@ -125,7 +125,7 @@ class Transaction
             $sql .= "order by transaction_is_active desc ";
             $query = $this->connection->prepare($sql);
             $query->execute([
-                "transaction_cart_dessertCart" => "%{$this->transaction_search}%",
+                "transaction_created" => "%{$this->transaction_search}%",
             ]);
         } catch (PDOException $ex) {
             $query = false;

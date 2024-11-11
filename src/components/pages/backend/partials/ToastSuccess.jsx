@@ -14,7 +14,7 @@ const ToastSuccess = () => {
     }, 2000)
   })
   return (
-    <div className='fixed top-5 left-1/2 -translate-x-1/2  bg-secondary min-w-[50px]  overflow-hidden rounded-md shadow-md border-success border'>
+    <div className='fixed top-5 left-1/2 -translate-x-1/2  bg-secondary min-w-[50px]  overflow-hidden rounded-md shadow-md border-success border z-[99999]'>
         <div className="flex items-center overflow-hidden pr-2">
             <div className='grid place-content-center bg-success basis-[35px] size-[35px]'>
                 <CheckCircle size={18} className='text-white'/>

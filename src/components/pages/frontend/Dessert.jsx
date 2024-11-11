@@ -1,9 +1,13 @@
 import useQueryData from '@/components/custom-hook/useQueryData';
 import { imgPath } from '@/components/helpers/functions-general'
+import { setMessage, setSuccess } from '@/components/store/storeAction';
 import { Plus } from 'lucide-react'
 import React from 'react'
+import ToastSuccess from '../backend/partials/ToastSuccess';
+import { StoreContext } from '@/components/store/storeContext';
 
 const Dessert = ({dessertCart, setDessertCart}) => {
+  const { store, dispatch } = React.useContext(StoreContext);
     const {
         isLoading,
         isFetching,
@@ -16,12 +20,8 @@ const Dessert = ({dessertCart, setDessertCart}) => {
       );
 
       const handleAddDessert  = (item) => {
-     
-        const exist = dessertCart.find((dessert) => dessert.sidesdessert_aid === item.sidesdessert_aid);
-    
-        console.log(dessertCart)
-
-        if (exist !== undefined) {
+      const exist = dessertCart.find((dessert) => dessert.sidesdessert_aid === item.sidesdessert_aid);
+      if (exist !== undefined) {
             setDessertCart(
             dessertCart.map((dessert) =>
                 dessert.sidesdessert_aid === item.sidesdessert_aid
@@ -32,11 +32,13 @@ const Dessert = ({dessertCart, setDessertCart}) => {
         } else {
             setDessertCart([...dessertCart, { ...item, quantity: 1 }]);
         }
-        // dispatch(setSuccess(true));
-        // setShowToppings(true)
+        dispatch(setSuccess(true));
+        dispatch(setMessage("Added to Cart!"));
+        
       };
 
   return (
+    <>
     <section className='bg-[#fdf7ef]'>
         <img src={`${imgPath}/machi-dessert.webp`} alt="" className='w-full object-cover'/>
         <div className="container py-24">
@@ -54,12 +56,11 @@ const Dessert = ({dessertCart, setDessertCart}) => {
             </div>
             )
         )}
-
-          
-      
         </div>
         </div>        
     </section>
+
+    </>
   )
 }
 

@@ -1,14 +1,11 @@
 import useQueryData from "@/components/custom-hook/useQueryData";
 import { imgPath } from "@/components/helpers/functions-general.jsx";
-import { Plus } from "lucide-react";
-import SpinnerTable from "../backend/partials/spinners/SpinnerTable";
-import SpinnerButton from "../backend/partials/spinners/SpinnerButton";
-import SpinnerWindow from "../backend/partials/spinners/SpinnerWindow";
-import SpinnerMenu from "../backend/partials/spinners/SpinnerMenu";
-import ModalToppings from "./ModalToppings";
+import { setMessage, setSuccess } from "@/components/store/storeAction";
 import { StoreContext } from "@/components/store/storeContext";
-import { setCart, setSuccess } from "@/components/store/storeAction";
+import { Plus } from "lucide-react";
 import React from "react";
+import SpinnerMenu from "../backend/partials/spinners/SpinnerMenu";
+import ToastSuccess from "../backend/partials/ToastSuccess";
 
 const Menu = ({ ramenCart, setRamenCart, setShowToppings }) => {
   const { store, dispatch } = React.useContext(StoreContext);
@@ -36,8 +33,9 @@ const Menu = ({ ramenCart, setRamenCart, setShowToppings }) => {
     } else {
       setRamenCart([...ramenCart, { ...item, quantity: 1 }]);
     }
+    setShowToppings(true)
     dispatch(setSuccess(true));
-    setShowToppings(true);
+    dispatch(setMessage("Added to Cart!"));
   };
 
   return (
@@ -83,6 +81,8 @@ const Menu = ({ ramenCart, setRamenCart, setShowToppings }) => {
           </div>
         </div>
       </section>
+      {store.success && <ToastSuccess/>}
+
     </>
   );
 };

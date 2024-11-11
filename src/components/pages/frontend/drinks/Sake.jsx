@@ -1,7 +1,11 @@
+import { setMessage, setSuccess } from "@/components/store/storeAction";
 import { Plus } from "lucide-react";
 import React from "react";
+import ToastSuccess from "../../backend/partials/ToastSuccess";
+import { StoreContext } from "@/components/store/storeContext";
 
 const Sake = ({ result, isLoading, setDrinksCart, drinksCart }) => {
+  const { store, dispatch } = React.useContext(StoreContext);
   const getAllSake =
     result?.data.length > 0 &&
     result?.data.filter((item) => item.drinks_category === "Sake");
@@ -24,6 +28,8 @@ const Sake = ({ result, isLoading, setDrinksCart, drinksCart }) => {
     } else {
       setDrinksCart([...drinksCart, { ...item, quantity: 1 }]);
     }
+    dispatch(setSuccess(true));
+    dispatch(setMessage("Added to Cart!"));
   };
   return (
     <>
@@ -55,6 +61,7 @@ const Sake = ({ result, isLoading, setDrinksCart, drinksCart }) => {
           ))}
         </div>
       )}
+
     </>
   );
 };

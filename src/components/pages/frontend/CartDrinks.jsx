@@ -41,6 +41,7 @@ const CartDrinks = ({ drinksCart, setDrinksCart }) => {
 
   return (
     <>
+    <p>drinks</p>
       {drinksCart.map((item, key) => (
         <div
           className="card-item  items-center mb-2 pb-2 border-b border-gray-100"

@@ -1,8 +1,12 @@
 import { Plus } from "lucide-react";
 import React from "react";
 import SpinnerMenu from "../../backend/partials/spinners/SpinnerMenu";
+import { setMessage, setSuccess } from "@/components/store/storeAction";
+import ToastSuccess from "../../backend/partials/ToastSuccess";
+import { StoreContext } from "@/components/store/storeContext";
 
 const Tea = ({ result, isLoading, setDrinksCart, drinksCart }) => {
+  const { store, dispatch } = React.useContext(StoreContext);
   const getAllTea =
     result?.data.length > 0 &&
     result?.data.filter((item) => item.drinks_category === "Tea");
@@ -24,6 +28,8 @@ const Tea = ({ result, isLoading, setDrinksCart, drinksCart }) => {
     } else {
       setDrinksCart([...drinksCart, { ...item, quantity: 1 }]);
     }
+    dispatch(setSuccess(true));
+    dispatch(setMessage("Added to Cart!"));
   };
 
   return (
@@ -56,6 +62,7 @@ const Tea = ({ result, isLoading, setDrinksCart, drinksCart }) => {
           ))}
         </div>
       )}
+
     </>
   );
 };

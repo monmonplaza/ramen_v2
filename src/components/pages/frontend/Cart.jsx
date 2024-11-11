@@ -73,6 +73,8 @@ const Cart = ({
     setDrinksCart([]);
   };
 
+  
+
   const handleComputeChange = (e) => {
     setChange(e.target.value - (getSubTotal + getSubTotal * 0.02));
   };
@@ -108,16 +110,16 @@ const Cart = ({
   });
 
   return (
-    <div className="w-[300px] h-screen fixed top-0 right-0 bg-white text-black z-50 grid grid-rows-[auto,_1fr,_auto] shadow-[rgba(17,_0,_26,_0.1)_0px_0px_16px]">
+    <div className="w-[300px] h-screen fixed top-0 right-0 bg-white text-black z-50 grid grid-rows-[auto,_1fr,_auto] shadow-[rgba(17,_0,_26,_0.1)_0px_0px_16px] animate-slideLeft">
       <div className="cart-header p-3 flex justify-between mb-2 border-b border-gray-200">
-        <h5 className="mb-0  text-black leading-tight">Your Cart</h5>
+        <h5 className="mb-0 text-black leading-tight">Your Cart</h5>
 
         <button onClick={handleClose}>
           <X />
         </button>
       </div>
 
-      <div className="cart-body px-2 h-[65vh] overflow-auto">
+      <div className="cart-body px-2 h-[62vh] overflow-auto">
         {(ramenCart.length > 0 ||
           dessertCart.length > 0 ||
           drinksCart.length > 0 ||
@@ -237,7 +239,7 @@ const Cart = ({
                   <li className=" ">Change</li>
                   <li>
                     <span className="pr-1">PHP</span>
-                    {Number(getSubTotal) > 0 ? change : "0.00"}
+                    {Number(getSubTotal) > 0 ? Math.floor(change).toFixed(2) : "0.00"}
                   </li>
                 </ul>
 

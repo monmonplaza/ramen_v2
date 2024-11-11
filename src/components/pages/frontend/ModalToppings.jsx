@@ -36,7 +36,6 @@ const ModalToppings = ({ setShowToppings, setToppingsCart, toppingsCart }) => {
       setToppingsCart([...toppingsCart, { ...item, quantity: 1 }]);
     }
     dispatch(setSuccess(true));
-    setShowToppings(true);
   };
 
   return (
